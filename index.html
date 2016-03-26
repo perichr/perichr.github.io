@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="assets/theme/ThinkSimpGray/index.css" rel="stylesheet" />
-<title>perichr.org</title>
-</head>
-<body>
-<nav id="links">
-	<ul>
-		<li><a href="//dev.perichr.org">dev:p</a></li>
-		<li><a href="//github.com/perichr">Github</a></li>
-		<li><a href="//segmentfault.com/u/perichr">SegmentFault</a></li>
-		<li><a href="//www.v2ex.com/member/perichr">V2E</a></li>
-		<li><a href="//about.me/perichr">AboutMe</a></li>
-	</ul>
-</nav>
-<nav id="navigate">
-	<ul><li><a title="代码日志" href="//dev.perichr.org">dev:p</a></li><li><a title="Atom Feed" href="//dev.perichr.org/feed.atom">A</a><a title="Rss Feed" href="//dev.perichr.org/feed.rss">R</a></li><li><a title="关于" href="//dev.perichr.org/about">About</a></li></ul>
-</nav>
-<footer id="copyright">
-  <span>&copy;
-  	<a href="//perichr.org" rel="me">perichr.org</a>
-  Some Right Reserved.</span>
-  <span>(IE9+/Fx/Ch/Op)</span>
-</footer>
-</body>
-</html>
+---
+layout: html5
+title: My Coding Life
+---
+<ul>{% for post in paginator.posts %}<li><a href="{{ post.url }}">{{ post.title }}</a></li>{% endfor %}</ul>
+<ol>
+	{% if paginator.page == 1 %}<li class="current"><span>1</span></li>{% else %}<li><a href="/" title="首页">1</a></li>{% endif %}
+	{% for count in (2..paginator.total_pages) %}{% if paginator.page == count %}<li class="current"><span>{{ count }}</span></li>{% else %}<li><a href="/page/{{ count }}" title="第 {{ count }} 页">{{ count }}</a></li>{% endif %}
+	{% endfor %}
+</ol>

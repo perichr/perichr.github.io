@@ -1,0 +1,278 @@
+---
+---
+@import "common";
+
+$content-width: 60rem;
+
+* {
+	transition: .2s;
+}
+html {
+	font-family: "Microsoft YaHei","微软雅黑","SimHei","SimSun","Arial",sans-serif;
+	background: #fff url("//perichr.qiniudn.com/assets/image/bg1.png") repeat scroll center top
+}
+body {
+	text-align:center;
+	border-top: 4.5rem solid rgba(0,0,0,0.03);
+	&>header {
+		max-width:$content-width;
+		text-align:left;
+		margin: -3.5rem auto 0 auto;
+		padding: 0 0 .5rem 0;
+		font-weight: bolder;
+		&>div {
+			font-size: 2.5rem;
+			a {
+				text-decoration: none;
+				color: white;
+				text-shadow: 0 0 1px gray;
+				&:hover {
+					text-shadow: 0 0 3px #333333;
+					text-decoration: none;
+				}
+			}
+		}
+		&>p {
+			margin: -1.7rem 0 0 0;
+			text-indent: 8rem;
+			color: white;
+		}
+		&:hover p {
+			text-shadow: 0 0 1px #dddddd;
+		}
+	}
+	&>nav {
+		position: fixed;
+		height: 1rem;
+		bottom: 1.2rem;
+		left: 0;
+		right: 0;
+		font-size: .8rem;
+		font-weight:bolder;
+		color: white;
+		ul {
+			background: rgba(0,0,0,0.15);
+			font-size: 0;
+			padding: 0;
+		}
+		li {
+			font-size: .8rem;
+			display: inline-block;
+			border-left: 1px solid white;
+			&:first-child {
+				border-left: none;
+			}
+		}
+		a {
+			text-shadow: 0 0 1px #dddddd;
+			color: white;
+			text-decoration: none;
+			padding: .5rem;
+			&:hover {
+				background: white;
+				color: gray;
+				text-decoration: underline;
+			}
+		}
+	}
+	&>footer {
+		position: fixed;
+		height: 1.2rem;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		color: gray;
+		font-size: .8rem;
+		a {
+			color: gray;
+		}
+	}
+}
+
+#content {
+	max-width:$content-width;
+	margin: 2rem auto;
+	position:relative;
+	&>ul {
+		text-align: left;
+		list-style: none;
+		padding:0;
+		a {
+			color:silver;
+			text-decoration: none;
+			vertical-align: top;
+			overflow: hidden;
+			font-size:2rem;
+			line-height: 200%;
+			font-weight: bolder;
+			&:hover {
+				color: #AAAAAA;
+				text-shadow: 0 0 1px rgba(0,0,0,0.5);
+			}
+		}
+	}
+	&>ol {
+		list-style: none;
+		padding:.5rem 0;
+		font-size: 0.75rem;
+		position:absolute;
+		right:1rem;
+		top:0;
+		background:gainsboro;
+		&:hover {
+			background:silver;
+		}
+		li {
+			span {
+				color: white;
+				padding: 0 .5rem;
+			}
+			a {
+				color: gainsboro;
+				text-decoration: none;
+				padding: 0 .5rem;
+				&:hover {
+					color:white;
+					text-shadow: 0 0 1px rgba(0,0,0,0.5);
+					background: gainsboro;
+				}
+			}
+		}
+	}
+	&>article {
+		h1 {
+			color: gray;
+			a{
+				color: gray;
+			}
+		}
+		&>div {
+			text-align: left;
+			p {
+				text-indent: 2rem;
+			}
+		}
+		&>aside{
+			font-size: 75%;
+			text-align: left;
+			&.metas {
+				background: rgba(0,0,0,0.03);
+			}
+			ul {
+				margin: 0;
+				padding: 0 0 0 5rem;
+				position:relative;
+				&:before {
+					width:4rem;
+					text-align:right;
+					position:absolute;
+					left:0;
+				}
+			}
+			li {
+				display: inline-block;
+			}
+			a {
+				padding: .3rem;
+			}
+			.cates {
+				&:before {
+					content: "Cates:";
+				}
+			}
+			.tags {
+				&:before {
+					content: "Tags:";
+				}
+			}
+			.posts {
+				&:before {
+					content: "Related:";
+				}
+				li {
+					width :($content-width - 6rem)/3 ;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow:ellipsis;
+					text-align: left;
+				}
+				time {
+					&:before {
+						content: "[";
+					}
+					&:after {
+						content: "]";
+					}
+				}
+			}
+		}
+	}
+}
+
+#tags, #cates {
+	text-indent: 0;
+	padding:0 1rem;
+	background: rgba(0,0,0,0.03);
+	color:gray;
+	font-size: 0.8rem;
+	&>li{
+		display: inline-block;
+	}
+	a {
+		padding: .3rem;
+		display: inline-block;
+		color:#AAAAAA;
+		text-decoration:none;
+		&:hover {
+			color:#666666;
+			}
+		&:after{
+			content: ';';
+		}
+	}
+	sup{
+		&:before {
+			content: '[';
+		}
+		&:after {
+			content: ']';
+		}
+	}
+}
+#cates {
+	&:before {
+		content: "Cates:";
+	}
+}
+#tags {
+	&:before {
+		content: "Tags:";
+	}
+}
+body.archive {
+	h2, h3{
+		margin: 0;
+		color: silver;
+	}
+	h2+ul, h3+ul {
+		margin: .3rem;
+		&>li{
+			display: inline-block;
+			width :($content-width - 2rem)/3 ;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow:ellipsis;
+			&>a {
+				color:gray;
+				&:before {
+					content: "█ ";
+				}
+				&>time {
+					&:after {
+						content: ": ";
+					}
+				}
+			}
+		}
+	}
+}

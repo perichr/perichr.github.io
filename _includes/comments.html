@@ -1,0 +1,24 @@
+{% if site.comment.service == "disqus" %}
+<script type="text/javascript">
+	document.write('<aside id="disqus_thread"></aside>');
+	var disqus_shortname = '{{ site.comment.id }}'; 
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+{% elsif site.comment.service == "duoshuo" %}
+<script type="text/javascript">
+	document.write('<aside class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></aside>');
+	var duoshuoQuery = {short_name:"{{ site.comment.id }}"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+{% endif %}

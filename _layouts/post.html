@@ -1,0 +1,27 @@
+---
+layout: html5
+---
+<article class="yue">
+<header><h1><a href="{{ page.url }}">{{ page.title }}</a></h1></header>
+<div>{{ content }}</div>
+<aside class="metas">
+	{% unless page.categories == empty %}
+	<ul class="cates">
+		{% assign categories_list = page.categories %}
+		{% include mod/categories_list.html %}
+	</ul>
+	{% endunless %}	
+	{% unless page.tags == empty %}
+	<ul class="tags">
+		{% assign tags_list = page.tags %}
+		{% include mod/tags_list.html %}
+	</ul>
+	{% endunless %}	
+	<ul class="posts">
+		{% for post in site.related_posts limit:6 %}
+		<li><a href="{{ post.url }}"><time pubdate="{{ post.date | date: "%Y-%m-%dT%H:%M:%ST%z" }}">{{ post.date | date:'%y-%m-%d' }}</time>{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+</aside>
+{% include comments.html %}
+</article>

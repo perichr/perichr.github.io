@@ -1,0 +1,53 @@
+title: "Dev:P"
+description: "My code, my life."
+
+author:
+  name: "perichr"
+  email: "i@perichr.org"
+
+url: https://perichr.org
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+  
+comment:
+  service: "disqus"
+  id: "perichr"
+
+sass:
+  style: compressed
+
+gems:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  
+permalink: /post/:year/:month/:day/:title
+excerpt_separator: "<!--more-->"
+
+paginate: 8
+paginate_path: /page/:num
+
+collections:
+  pages:
+    output: true
+    permalink: /:path
+    
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "post"
+      theme: "ThinkSimpGray"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
